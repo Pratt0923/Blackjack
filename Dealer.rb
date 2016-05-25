@@ -17,7 +17,14 @@ attr_reader :deck
   end
 
   def hit(player)
-    player.hand.cards.push(@deck.draw)
+    if deck.cards.count == 0
+      deck.reshuffle
+      player.hand.cards.push(@deck.draw)
+    else
+      player.hand.cards.push(@deck.draw)
+    end
+
+
   end
 
 # If I deal a hand to a player and then i deal a hit. If i deal a hand next

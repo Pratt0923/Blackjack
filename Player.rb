@@ -12,7 +12,7 @@ class Player
   end
 
   def newdeal
-    
+    @hand = Hand.new
   end
 
   def wins(newwinnings)

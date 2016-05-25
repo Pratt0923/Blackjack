@@ -197,6 +197,7 @@ class DealerTest < Minitest::Test
     p = Player.new
     d = Dealer.new
 
+
     d.deal_hand_to p
     d.hit p
 
@@ -205,14 +206,12 @@ class DealerTest < Minitest::Test
   end
 
   def test_dealer_holds_the_deck
-    skip
     d = Dealer.new
     assert d.deck.is_a?(Deck)
     assert_equal [], d.deck.drawn
   end
 
   def test_dealer_deals_from_the_deck
-    skip
     d = Dealer.new
     p = Player.new
 
@@ -221,7 +220,6 @@ class DealerTest < Minitest::Test
   end
 
   def test_dealer_reshuffles_the_deck_when_needed
-    skip
     d = Dealer.new
     p = Player.new
 
@@ -234,6 +232,6 @@ class DealerTest < Minitest::Test
     # Don't worry about the player already
     #   "holding" these cards
     d.hit p
-    assert_equal d.deck.cards.count, 51
+    assert_equal 51, d.deck.cards.count
   end
 end
