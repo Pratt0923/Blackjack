@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/focus'
 
 require 'minitest/reporters'
-Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require './card'
 require './deck'
@@ -107,37 +107,36 @@ class TestHand < Minitest::Test
     assert_equal hand.showing, 'AH'
   end
 
-  def blackjack_beats_other_things
-    skip
+  def test_blackjack_beats_other_things
     h1 = Hand.new
     h1.add(Card.new(:A, :H), Card.new(:K, :S))
 
     h2 = Hand.new
-    hand.add(Card.new(5, :S), Card.new(:Q, :S))
+    h2.add(Card.new(5, :S), Card.new(:Q, :S))
 
     assert h1.beats?(h2)
     refute h2.beats?(h1)
   end
 
-  def busted_hands_dont_beat_unbusted_hands
-    skip
+  def test_busted_hands_dont_beat_unbusted_hands
+
     h1 = Hand.new
     h1.add(Card.new(3, :H), Card.new(6, :S))
 
     h2 = Hand.new
-    hand.add(Card.new(:K, :H), Card.new(5, :S), Card.new(:Q, :S))
+    h2.add(Card.new(:K, :H), Card.new(5, :S), Card.new(:Q, :S))
 
     assert h1.beats?(h2)
     refute h2.beats?(h1)
   end
 
   def hands_can_tie
-    skip
+
     h1 = Hand.new
-    h1.add(Card.new(3, :H), Card.new(6, :S))
+    h1.add(Card.new(4, :H), Card.new(6, :S))
 
     h2 = Hand.new
-    hand.add(Card.new(5, :H), Card.new(5, :D))
+    h2.add(Card.new(5, :H), Card.new(5, :D))
 
     refute h1.beats?(h2)
     refute h2.beats?(h1)
@@ -146,7 +145,7 @@ end
 
 class PlayerTest < Minitest::Test
   def test_players_have_wallets
-    skip
+    
     p = Player.new 100
     assert_equal 100, p.wallet
   end

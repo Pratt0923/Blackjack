@@ -1,8 +1,9 @@
 class Hand
-  attr_reader :cards
+  attr_reader :cards, :hand
 
   def initialize
     @cards = []
+    @hand = []
   end
 
   def add *new_cards
@@ -31,6 +32,18 @@ class Hand
   end
 
   def showing
+    cards.first.to_s
+  end
 
+  def beats?(otherhand)
+    if otherhand.busted?
+      true
+    elsif !otherhand.busted? && !busted?
+      if value > otherhand.value
+        true
+      else
+        false
+      end
+    end
   end
 end
