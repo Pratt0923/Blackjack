@@ -14,7 +14,11 @@ class Player
   end
 
   def broke?
-
+    if wallet <= 0
+      true
+    else
+      false
+    end
   end
 
 
