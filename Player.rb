@@ -1,4 +1,7 @@
-require "./Hand"
+require './card'
+require './deck'
+require './hand'
+require './dealer'
 
 class Player
   attr_reader :wallet, :hand
@@ -8,6 +11,9 @@ class Player
     @hand = hand
   end
 
+  def newdeal
+    
+  end
 
   def wins(newwinnings)
     @wallet = (newwinnings + wallet)

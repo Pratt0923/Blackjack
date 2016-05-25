@@ -174,7 +174,7 @@ end
 
 class DealerTest < Minitest::Test
   def test_can_deal_a_hand
-    skip
+
     p = Player.new
     d = Dealer.new
 
@@ -183,7 +183,7 @@ class DealerTest < Minitest::Test
   end
 
   def test_can_deal_a_card
-    skip
+
     p = Player.new
     d = Dealer.new
 
@@ -193,7 +193,7 @@ class DealerTest < Minitest::Test
   end
 
   def test_dealing_a_new_hand_resets
-    skip
+
     p = Player.new
     d = Dealer.new
 

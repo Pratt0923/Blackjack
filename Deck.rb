@@ -1,3 +1,8 @@
+require './card'
+require './hand'
+require './player'
+require './dealer'
+
 class Deck
   SUITS = [:S, :D, :H, :C]
   RANKS = 2.upto(10).to_a + [:J, :Q, :K, :A]

@@ -1,3 +1,8 @@
+require './card'
+require './deck'
+require './player'
+require './dealer'
+
 class Hand
   attr_reader :cards, :hand
 

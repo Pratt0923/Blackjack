@@ -1,3 +1,8 @@
+require './deck'
+require './hand'
+require './player'
+require './dealer'
+
 class Card
   attr_reader :rank, :suit
 
