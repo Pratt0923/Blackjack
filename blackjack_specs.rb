@@ -145,20 +145,19 @@ end
 
 class PlayerTest < Minitest::Test
   def test_players_have_wallets
-    
+
     p = Player.new 100
     assert_equal 100, p.wallet
   end
 
   def test_players_can_win_money
-    skip
+
     p = Player.new 50
     p.wins 10
     assert_equal 60, p.wallet
   end
 
   def test_players_have_a_hand
-    skip
     p = Player.new
     assert p.hand.is_a?(Hand)
   end

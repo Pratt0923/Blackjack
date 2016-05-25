@@ -1,12 +1,14 @@
 class Player
-  
-  def initialize(money)
-    @money = money
+  attr_reader :wallet
+
+  def initialize(wallet)
+    @wallet = wallet
   end
 
-  def wallet
-
+  def wins(newwinnings)
+    @wallet = (newwinnings + wallet)
   end
+
 
 
 end
