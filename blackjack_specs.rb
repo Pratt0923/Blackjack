@@ -163,7 +163,7 @@ class PlayerTest < Minitest::Test
   end
 
   def test_players_can_be_broke
-    skip
+
     p = Player.new 10
     refute p.broke?
 
