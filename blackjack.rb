@@ -3,16 +3,19 @@ require './deck'
 require './hand'
 require './player'
 require './dealer'
-
-class Deck
+require "pry"
+game_over = false
+unless game_over == true
 
 puts "Welcome to Blackjack!"
 puts "How much money do you want to bet?"
 print "$$: "
-input = gets.chomp
-if input != Integer
-  puts "Please enter a valid number"
-  input = gets.chomp
+input = gets.chomp.to_i
+
+player = Player.new(input)
+dealer = Dealer.new
+
+
 end
 
   #in blackjack you need to have the dealer get a new deck of cards.

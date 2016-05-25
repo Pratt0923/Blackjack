@@ -11,9 +11,9 @@ class Deck
 
   def initialize
     @cards, @drawn = [], []
-    SUITS.each do |suite|
+    SUITS.each do |suit|
       RANKS.each do |rank|
-        @cards.push Card.new(suite, rank)
+        @cards.push Card.new(rank, suit)
       end
     end
     @cards.shuffle!
@@ -27,7 +27,7 @@ class Deck
 
   def reshuffle
     @cards, @drawn = [], []
-    SUITS.each do |suite|
+    SUITS.each do |suit|
       RANKS.each do |rank|
         @cards.push Card.new(suite, rank)
       end

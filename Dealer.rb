@@ -9,7 +9,6 @@ attr_reader :deck
     @deck = Deck.new
   end
 
-
   def deal_hand_to(player)
     player.newdeal
     player.hand.cards.push(@deck.draw)
