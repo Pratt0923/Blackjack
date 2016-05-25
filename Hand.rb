@@ -8,7 +8,6 @@ class Hand
 
   def initialize
     @cards = []
-    @hand = []
   end
 
   def add *new_cards

@@ -1,78 +1,18 @@
-class Card
-  attr_reader :rank, :suit
-
-  def initialize rank, suit
-    @rank, @suit = rank, suit
-  end
-
-  def value
-    case rank
-    when :K, :Q, :J
-      10
-    when :A
-      1
-    else
-      rank
-    end
-  end
-
-  def to_s
-    "#{rank}#{suit}"
-  end
-end
+require './card'
+require './deck'
+require './hand'
+require './player'
+require './dealer'
 
 class Deck
+
   SUITS = [:S, :D, :H, :C]
   RANKS = 2.upto(10).to_a + [:J, :Q, :K, :A]
 
-  attr_reader :cards, :drawn
+  #in blackjack you need to have the dealer get a new deck of cards.
 
-  def initialize
-    @cards, @drawn = [], []
-    SUITS.each do |suite|
-      RANKS.each do |rank|
-        @cards.push Card.new(suite, rank)
-      end
-    end
-    @cards.shuffle!
-  end
+  #the dealer will deal the cards to the player
+    #at first they will deal 2 cards and then after they will deal 1
 
-  def draw
-    card = @cards.pop
-    @drawn.push card
-    card
-  end
-end
-
-class Hand
-  attr_reader :cards
-
-  def initialize
-    @cards = []
-  end
-
-  def add *new_cards
-    @cards += new_cards
-  end
-
-  def value
-    base = cards.map { |c| c.value }.reduce(:+)
-    if cards.any? { |c| c.rank == :A } && base <= 11
-      base + 10
-    else
-      base
-    end
-  end
-
-  def blackjack?
-    value == 21
-  end
-
-  def busted?
-    value > 21
-  end
-
-  def to_s
-    cards.map { |c| c.to_s }.join ", "
-  end
-end
+  #the player will keep drawing cards until they either get to 21 or they
+  #go over 21 or whatever
