@@ -49,7 +49,6 @@ unless game_over == true
       if player.hand.busted?
         puts "You busted!! You lose."
         game_over = true
-        # exit #I know this is not a good solution. Sorry
       end
 
       if player.hand.blackjack?
