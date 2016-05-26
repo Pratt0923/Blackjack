@@ -9,21 +9,22 @@ require "pry"
 
 # you can see the dealers first card always
 game_over = false
+
+puts "Welcome to Blackjack!"
+puts "How much money do you want to bet?"
+print "$$: "
+input = gets.chomp.to_i
+
+player = Player.new(input)
+dealer = Dealer.new
+
+
+puts "the dealer has #{dealer.deck.cards.count} cards"
+puts "Here is your initial draw:"
+dealer.deal_hand_to(player)
+dealer.deal_hand_to(dealer)
+
 unless game_over == true
-
-  puts "Welcome to Blackjack!"
-  puts "How much money do you want to bet?"
-  print "$$: "
-  input = gets.chomp.to_i
-
-  player = Player.new(input)
-  dealer = Dealer.new
-
-
-  puts "the dealer has #{dealer.deck.cards.count} cards"
-  puts "Here is your initial draw:"
-  dealer.deal_hand_to(player)
-  dealer.deal_hand_to(dealer)
 
   puts player.hand.to_s
   puts "your hand value is #{player.hand.value}"
@@ -85,43 +86,46 @@ unless game_over == true
       puts "the dealer got blackjack! You lose!"
       game_over = true
     end
-
-
-    if game_over == true
-      puts "the dealers final card value was"
-      print dealer.hand.value
-      puts
-      puts "your final hand value was"
-      print player.hand.value
-      puts
-
-      if dealer.hand.value >= player.hand.value && !dealer.hand.busted?
-        puts "the dealer outscored you! you lose"
-      else
-        puts "you outscored the dealer! you win!"
-      end
-    end
   end
+#there is a loop here somwhere but I dont know where
+if game_over == true
+
+end
+  # if game_over == true
+  #   puts "the dealers final card value was"
+  #   print dealer.hand.value
+  #   puts
+  #   puts "your final hand value was"
+  #   print player.hand.value
+  #   puts
+  #
+  #   if dealer.hand.value >= player.hand.value && !dealer.hand.busted?
+  #     puts "the dealer outscored you! you lose"
+  #   else
+  #     puts "you outscored the dealer! you win!"
+  #   end
+  # end
+# end
 end
 
-  #-----------------------------------endplayerturn
-  # until dealer.hand.blackjack? || dealer.hand.busted?
-  #   unless dealer.hand.value >= 18
-  #     puts "the dealer is drawing a card..."
-  #     dealer.hit(dealer)
-  #   else
-  #     puts "the dealer is passing."
-  #   end
-  #
-  #   if dealer.hand.blackjack?
-  #     puts "too bad the dealer got blackjack"
-  #   end
-  #
-  #   if dealer.hand.blackjack?
-  #     puts "the dealer got blackjack! You lose!"
-  #   end
-  # end
-  #---------------------------------end dealer turn
+#-----------------------------------endplayerturn
+# until dealer.hand.blackjack? || dealer.hand.busted?
+#   unless dealer.hand.value >= 18
+#     puts "the dealer is drawing a card..."
+#     dealer.hit(dealer)
+#   else
+#     puts "the dealer is passing."
+#   end
+#
+#   if dealer.hand.blackjack?
+#     puts "too bad the dealer got blackjack"
+#   end
+#
+#   if dealer.hand.blackjack?
+#     puts "the dealer got blackjack! You lose!"
+#   end
+# end
+#---------------------------------end dealer turn
 
 
 
@@ -130,23 +134,23 @@ end
 
 
 
-  # until input == "y" || input == "n"
-  #   binding.pry
-  #   puts "please enter 'y' or 'n'"
-  #   print ">"
-  #   input = gets.chomp
-  # end
+# until input == "y" || input == "n"
+#   binding.pry
+#   puts "please enter 'y' or 'n'"
+#   print ">"
+#   input = gets.chomp
+# end
 
-  #if the dealer gets to 17 they will not hit anymore
+#if the dealer gets to 17 they will not hit anymore
 
-  #in blackjack you need to have the dealer get a new deck of cards.
+#in blackjack you need to have the dealer get a new deck of cards.
 
-  #the dealer will deal the cards to the player
-  #at first they will deal 2 cards and then after they will deal 1
+#the dealer will deal the cards to the player
+#at first they will deal 2 cards and then after they will deal 1
 
-  #the player will keep drawing cards until they either get to 21 or they
-  #go over 21 or whatever
+#the player will keep drawing cards until they either get to 21 or they
+#go over 21 or whatever
 
-  #after this they will either win or lose
+#after this they will either win or lose
 
-  #then they can play again.
+#then they can play again.
